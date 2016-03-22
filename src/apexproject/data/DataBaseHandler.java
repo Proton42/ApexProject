@@ -15,10 +15,19 @@ import org.apache.commons.lang3.ArrayUtils;
 public class DataBaseHandler {
     private DayTours[] dayTours;
     private DayTours dayTour;
+    private DayTourGogn gogn;
+    private String[][] data;
     private int index;
     
     public DataBaseHandler(){
         index = 0;
+        gogn = new DayTourGogn();
+        data = gogn.getData();
+        for(int i = 0; i <= data[0].length;i++){
+            addDayTour(data[i][0],data[i][1],Integer.parseInt(data[i][2]),Integer.parseInt(data[i][3]),
+                    data[i][4], data[i][5],data[i][6],Boolean.parseBoolean(data[i][7]),Float.parseFloat(data[i][8]),data[i][9],
+                    Float.parseFloat(data[i][10]),data[i][11]);
+        }
     }
     
     public DayTours[] getDayTours(){

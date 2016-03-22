@@ -14,6 +14,7 @@ import apexproject.DayTours;
  * @author Jökull Jóhannsson, Háskóli Íslands, jokullj@gmail.com
  */
 public class DayTourGogn {
+    String[][] gogn;
     
   public DayTourGogn () {
         String[][] gogn = {
@@ -30,8 +31,9 @@ public class DayTourGogn {
 	{"Kaldi Brewery","Visit the first successful microbrewery in Iceland and get drunk.","15990","20","16:00","6 hours","Wednesday,Thursday,Friday","TRUE","-1","","-1","North","40"},
 	{"Strandir Hiking Trail","The landscape at Strandir is one to die for. One of the most remote hiking trail in Iceland.","25900","16","07:30","6 days","Monday","TRUE","-1","","-1","Northwest","25"}
         };
-    System.out.println(gogn.length);
   }    
-    
+    public String[][] getData(){
+        return gogn;
+    }
     
 }
