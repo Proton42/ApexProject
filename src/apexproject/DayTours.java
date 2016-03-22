@@ -32,6 +32,12 @@ private int ID;
         this.ID = ID;
     }
 
+    public DayTours(String name, String description, int price,
+        int ageRestriction, String departureTime, String duration, String daysOfWeek,
+        boolean hotelPickupAvailable,float ratioOfSeatsSold, String date, float stars,
+        String location) {
+    }
+
     /**
      * @return the name
      */
