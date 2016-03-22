@@ -14,8 +14,9 @@ import apexproject.DayTours;
  * @author Jökull Jóhannsson, Háskóli Íslands, jokullj@gmail.com
  */
 public class DayTourGogn {
-  public static void main(String[] args) {
-    String[][] gogn = {
+    
+  public DayTourGogn () {
+        String[][] gogn = {
         {"Northern Lights Tour","See the magic of the northern lights in this excellent evening tour","9900", "-1", "18:30", "6 hours", "Monday,Thursday,Saturday", "TRUE", "-1", "", "-1", "Southwest","50"},
         {"Blue Lagoon Tour", "The most famous tourist attraction in Iceland. Known for its skin healing powers","99000", "-1", "09:20", "4 hours", "Monday,Tuesday,Wednesday,Thursday,Friday,Staurday,Sunday", "TRUE", "-1", "", "-1","Southwest","150"},
         {"The Golden Circle","World famous Geysir and the incredible Gullfoss all in one trip","20000","-1","09:00","4 hours", "Monday,Tuesday,Wednesday,Thursday,Friday,Staurday","TRUE","-1","","-1","Reykjavík","250"},
