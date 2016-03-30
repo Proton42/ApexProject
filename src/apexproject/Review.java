@@ -13,14 +13,23 @@ public class Review {
     private String legend;
     private String owner;
     private String content;
-    private float stars;
+    private double stars;
     private String date;
+    private int ID;
 
     /**
      * @return the legend
      */
     
-    public Review(){}
+    public Review(String legend, String owner, String content, 
+            double stars, String date, int dayTourID){
+        this.legend = legend;
+        this.owner= owner;
+        this.content= content;
+        this.stars= stars;
+        this.date= date;
+        this.ID = dayTourID;
+    }
     
     public String getLegend() {
         return legend;
@@ -64,14 +73,14 @@ public class Review {
     /**
      * @return the stars
      */
-    public float getStars() {
+    public double getStars() {
         return stars;
     }
 
     /**
      * @param stars the stars to set
      */
-    public void setStars(float stars) {
+    public void setStars(double stars) {
         this.stars = stars;
     }
 
@@ -88,5 +97,13 @@ public class Review {
     public void setDate(String date) {
         this.date = date;
     }
+    
+     /**
+     * @return the ID
+     */
+    public int getID() {
+        return ID;
+    }
+
     
 }

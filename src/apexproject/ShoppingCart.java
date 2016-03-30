@@ -41,8 +41,7 @@ public class ShoppingCart {
         ArrayUtils.add(this.nrOfChildren, children);
         ArrayUtils.add(this.hotelPickupRequested, hotelPickupRequested);
         ArrayUtils.add(this.hotelLocation, hotelLocation);
-        
-        
+       
     }
     
     public void removeTour(int tour){

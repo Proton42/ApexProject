@@ -21,21 +21,32 @@ private String departureTime;
 private String duration;
 private String daysOfWeek;
 private boolean hotelPickupAvailable;
-private float ratioOfSeatsSold;
+private double ratioOfSeatsSold;
 private String date;
-private float stars;
+private double stars;
 private String location;
 private int ID;
 
-
-    public DayTours(int ID){
-        this.ID = ID;
-    }
-
     public DayTours(String name, String description, int price,
         int ageRestriction, String departureTime, String duration, String daysOfWeek,
-        boolean hotelPickupAvailable,float ratioOfSeatsSold, String date, float stars,
-        String location) {
+        boolean hotelPickupAvailable,double ratioOfSeatsSold, String date, double stars,
+        String location, int ID) {
+        this.name = name;
+        this.description = description;
+        this.seatsAvailable = seatsAvailable;
+        this.price = price;
+        this.ageRestriction = ageRestriction;
+        this.departureTime = departureTime;
+        this.duration = duration;
+        this.daysOfWeek = daysOfWeek;
+        this.hotelPickupAvailable = hotelPickupAvailable;
+        this.ratioOfSeatsSold = ratioOfSeatsSold;
+        this.date = date;
+        this.stars = stars;
+        this.location = location;
+        this.ID = ID;
+        
+        
     }
 
     /**
@@ -153,7 +164,7 @@ private int ID;
     /**
      * @return the ratioOfSeatsSold
      */
-    public float getRatioOfSeatsSold() {
+    public double getRatioOfSeatsSold() {
         return ratioOfSeatsSold;
     }
 
@@ -181,7 +192,7 @@ private int ID;
     /**
      * @return the stars
      */
-    public float getStars() {
+    public double getStars() {
         return stars;
     }
 
