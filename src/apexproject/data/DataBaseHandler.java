@@ -6,6 +6,7 @@
 package apexproject.data;
 
 import apexproject.DayTours;
+import apexproject.Review;
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
@@ -25,11 +26,13 @@ public class DataBaseHandler {
         idCounter = 1;
         gogn = new DayTourGogn();
         data = gogn.getData();
-        for(int i = 0; i <= data[0].length;i++){
+       
+        for(int i = 0; i < data.length;i++){
             addDayTour(data[i][0],data[i][1],Integer.parseInt(data[i][2]),Integer.parseInt(data[i][3]),
                     data[i][4], data[i][5],data[i][6],Boolean.parseBoolean(data[i][7]),Float.parseFloat(data[i][8]),data[i][9],
                     Float.parseFloat(data[i][10]),data[i][11]);
         }
+
     }
     
     public DayTours[] getDayTours(){
@@ -42,13 +45,13 @@ public class DataBaseHandler {
         String location){
         dayTour = new DayTours(name,description,price, ageRestriction, departureTime, duration,
                 daysOfWeek, hotelPickupAvailable, ratioOfSeatsSold, date, stars, location,idCounter++);
-        ArrayUtils.add(dayTours, dayTours.length, dayTour);
+        dayTours = ArrayUtils.add(dayTours, dayTour);
     }
     
     public void removeDayTour(DayTours dayTour){
         index = ArrayUtils.indexOf(dayTours, dayTour);
         if(index>=0){
-            ArrayUtils.remove(dayTours, index);
+            dayTours = ArrayUtils.remove(dayTours, index);
         }
     }
     
@@ -64,4 +67,18 @@ public class DataBaseHandler {
         }
         return null;
     }
+    
+    public void addReview(String legend, String owner, String content, double stars, 
+            String date, int dayTourID){
+    }
+    
+    public void removeReview(int ID){
+        
+    }
+    
+    public Review getReview(){
+        return null;
+    }
+    
+    
 }

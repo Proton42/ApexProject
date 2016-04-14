@@ -48,6 +48,7 @@ public class ShoppingCartTest {
         dayTours[2] = new DayTours("Gullfoss og Geysir", "Skemmtileg gullhringsferð", 150000,
         -1, "1000", "1000-1400", "mon,wed,fri",false,0.7, "20-07-2015", 4.8, "SV", 2);
         
+        
     }
     
     @After
@@ -55,19 +56,7 @@ public class ShoppingCartTest {
         dayTours = null;
     }
 
-    /**
-     * Test of getChosenTours method, of class ShoppingCart.
-     */
-    @Test
-    public void testGetChosenTours() {
-        System.out.println("getChosenTours");
-        ShoppingCart instance = new ShoppingCart();
-        DayTours[] expResult = dayTours;
-        DayTours[] result = instance.getChosenTours();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of addTour method, of class ShoppingCart.
@@ -75,70 +64,49 @@ public class ShoppingCartTest {
     @Test
     public void testAddTour() {
         System.out.println("addTour");
-        int tourID = 0;
-        int adults = 0;
-        int children = 0;
-        boolean hotelPickupRequested = false;
-        String hotelLocation = "";
-        ShoppingCart instance = new ShoppingCart();
-        instance.addTour(tourID, adults, children, hotelPickupRequested, hotelLocation);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int[] tourID = {1,2,3};
+        int[] adults = {1,2,3};
+        int[] children = {1,2,3};
+        boolean[] hotelPickupRequested = {true,false,true};
+        String[] hotelLocation = {"1","2","3"};
+        ShoppingCart instance = shoppingCart;
+        for(int i = 0;i<3;i++){
+            instance.addTour(tourID[i],adults[i],children[i],hotelPickupRequested[i],hotelLocation[i]);
+        }
+        assertArrayEquals(tourID,instance.chosenTours);
+        assertArrayEquals(adults,instance.nrOfAdults);
+        assertArrayEquals(children,instance.nrOfChildren);
+        assertArrayEquals(hotelPickupRequested,instance.hotelPickupRequested);
+        assertArrayEquals(hotelLocation,instance.hotelLocation);
+
     }
 
-    /**
-     * Test of removeTour method, of class ShoppingCart.
-     */
     @Test
     public void testRemoveTour() {
+        int[] tourID = {1,2,3,4};
+        int[] adults = {1,2,3,4};
+        int[] children = {1,2,3,4};
+        boolean[] hotelPickupRequested = {true,false,true,false};
+        String[] hotelLocation = {"1","2","3","4"};
+        ShoppingCart instance = shoppingCart;
+        for(int i = 0;i<4;i++){
+            instance.addTour(tourID[i],adults[i],children[i],hotelPickupRequested[i],hotelLocation[i]);
+        }
+
         System.out.println("removeTour");
-        int tour = 0;
-        ShoppingCart instance = new ShoppingCart();
-        instance.removeTour(tour);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int tour1 = 3;
+        int tour2 = 1;
+        assertArrayEquals(new int[]{1,2,3,4},instance.chosenTours);
+        instance.removeTour(tour1);
+
+        instance.removeTour(tour2);
+        
+        assertArrayEquals(new int[]{2,4},instance.chosenTours);
+        assertArrayEquals(new int[]{2,4},instance.nrOfAdults);
+        assertArrayEquals(new int[]{2,4},instance.nrOfChildren);
+        assertArrayEquals(new boolean[]{false,false},instance.hotelPickupRequested);
+        assertArrayEquals(new String[]{"2","4"},instance.hotelLocation);
     }
 
-    /**
-     * Test of getTotalPrice method, of class ShoppingCart.
-     */
-    @Test
-    public void testGetTotalPrice() {
-        System.out.println("getTotalPrice");
-        ShoppingCart instance = new ShoppingCart();
-        int expResult = 0;
-        int result = instance.getTotalPrice();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of setTotalPrice method, of class ShoppingCart.
-     */
-    @Test
-    public void testSetTotalPrice() {
-        System.out.println("setTotalPrice");
-        int totalPrice = 0;
-        ShoppingCart instance = new ShoppingCart();
-        instance.setTotalPrice(totalPrice);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of payForTours method, of class ShoppingCart.
-     */
-    @Test
-    public void testPayForTours() {
-        System.out.println("payForTours");
-        String buyerName = "";
-        ShoppingCart instance = new ShoppingCart();
-        Reservation[] expResult = null;
-        Reservation[] result = instance.payForTours(buyerName);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
