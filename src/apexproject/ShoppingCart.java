@@ -15,7 +15,7 @@ import org.apache.commons.lang3.ArrayUtils;
  * @author Orn
  */
 public class ShoppingCart {
-    public int[] chosenTours;
+    public DayTours[] chosenTours;
     public int[] nrOfAdults;
     public int[] nrOfChildren;
     private int totalPrice;
@@ -33,11 +33,11 @@ public class ShoppingCart {
     /**
      * @return the chosenTours
      */
-    public int[] getChosenToursID() {
+    public DayTours[] getChosenTours() {
         return chosenTours;
     }
 
-    public void addTour(int dayTour, int adults, int children, boolean hotelPickupRequested, String hotelLocation){
+    public void addTour(DayTours dayTour, int adults, int children, boolean hotelPickupRequested, String hotelLocation){
         this.chosenTours = ArrayUtils.add(this.chosenTours, dayTour);
         //this.chosenTours[0] = dayTour;
         this.nrOfAdults = ArrayUtils.add(this.nrOfAdults, adults);
@@ -77,16 +77,14 @@ public class ShoppingCart {
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
-    /*
     
-    //chosenTours er in en ekki DayTours, þurfum að kalla á fallið getTourWithID í databasehandler með id í chosenTours
-    public Reservation[] payForTours(String buyerName){
+    
+    public void payForTours(String buyerName){
         
         for(int i = 0; i < chosenTours.length; i++){
             
             shoppingCart[i] = new Reservation(chosenTours[i], buyerName, nrOfAdults[i],nrOfChildren[i],hotelPickupRequested[i],hotelLocation[i]);
         }
-        return shoppingCart;
     }
-    */
+    
 }

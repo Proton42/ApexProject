@@ -25,10 +25,6 @@ public class DayTourSearch {
     public DayTours[] search(String sortBy, int ageRestriction){
         return mainSearch.searchDayTours("ageRestriction", ageRestriction);
     }
-    //Search by hotelPickupAvailable
-    public DayTours[] search(boolean hotelPickupAvailable){
-        return mainSearch.searchDayTours(hotelPickupAvailable);
-    }
     //Search by location
     public DayTours[] search(String something, String location){
         return mainSearch.searchDayTours(something, location);
@@ -41,23 +37,31 @@ public class DayTourSearch {
     public DayTours[] search(String departureTime){
         return mainSearch.searchDayTours(departureTime);
     }
-    //Search by location
+    //Search by seats available
     public DayTours[] search(int seatsAvailable){
         return mainSearch.searchDayTours(seatsAvailable);
     }
+    //Search by seats available
+    public DayTours[] search(boolean[] daysOfWeek){
+        return mainSearch.searchDayTours(daysOfWeek);
+    }
     //Search by price and ageRestriction
-    public DayTours[] search(int param1, int param2, int ageRestriction){
-        Search newSearch = new Search(mainSearch.searchDayTours("price", param1, param2));
+    public DayTours[] search(int lowPrice, int highPrice, int ageRestriction){
+        Search newSearch = new Search(mainSearch.searchDayTours("price", lowPrice, highPrice));
         return newSearch.searchDayTours("age", ageRestriction);
     }
     
     //Book a tour with hotel pickup
-    public void bookDayTours(DayTours dayTour, int adults, int children, String hotelLocation){
-        shoppingCart.addTour(dayTour.getID(), adults, children, true, hotelLocation );
+    public void bookDayTour(DayTours dayTour, int adults, int children, String hotelLocation){
+        shoppingCart.addTour(dayTour, adults, children, true, hotelLocation );
     }
     //Book a tour without hotel pickup
-    public void bookDayTours(DayTours dayTour, int adults, int children){
-        shoppingCart.addTour(dayTour.getID(), adults, children, false, "N/A" );
+    public void bookDayTour(DayTours dayTour, int adults, int children){
+        shoppingCart.addTour(dayTour, adults, children, false, "N/A" );
+    }
+    //Submitting all bookings
+    public void confirmBookings(String buyerName){
+        shoppingCart.payForTours(buyerName);
     }
     
 }
