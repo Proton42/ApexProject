@@ -21,6 +21,7 @@ public class DataBaseHandler {
     private int index;
     private int idCounter;
     
+    
     public DataBaseHandler(){
         index = 0;
         idCounter = 1;
@@ -28,8 +29,14 @@ public class DataBaseHandler {
         data = gogn.getData();
        
         for(int i = 0; i < data.length;i++){
+            boolean[] daysAvailable = new boolean[7];
+            for(int j = 0; j < 7;j++){
+                if(data[i][6].substring(j,j+1).compareTo("1") == 0){
+                    daysAvailable[j] = true;
+                }
+            }
             addDayTour(data[i][0],data[i][1],Integer.parseInt(data[i][2]),Integer.parseInt(data[i][3]),
-                    data[i][4], data[i][5],data[i][6],Boolean.parseBoolean(data[i][7]),Float.parseFloat(data[i][8]),data[i][9],
+                    data[i][4], data[i][5],daysAvailable,Boolean.parseBoolean(data[i][7]),Float.parseFloat(data[i][8]),data[i][9],
                     Float.parseFloat(data[i][10]),data[i][11]);
         }
 
@@ -40,7 +47,7 @@ public class DataBaseHandler {
     }
     
     public void addDayTour(String name, String description, int price,
-        int ageRestriction, String departureTime, String duration, String daysOfWeek,
+        int ageRestriction, String departureTime, String duration, boolean[] daysOfWeek,
         boolean hotelPickupAvailable,float ratioOfSeatsSold, String date, float stars,
         String location){
         dayTour = new DayTours(name,description,price, ageRestriction, departureTime, duration,

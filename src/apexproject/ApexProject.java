@@ -18,13 +18,15 @@ public class ApexProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        searchResults = searchClass.searchDayTours("price", 10000, 16000);
+        
+        searchResults = searchClass.searchDayTours( new boolean[]{ false, false, true, false, false, false, false });
         System.out.println("Hér koma niðurstöður:");
         if(searchResults != null){
             for(int i = 0; i < searchResults.length; i++){
                 System.out.println(searchResults[i].getName());
         }
         }
+
     }
     
 }

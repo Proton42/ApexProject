@@ -19,7 +19,7 @@ private int price;
 private int ageRestriction;
 private String departureTime;
 private String duration;
-private String daysOfWeek;
+private boolean[] daysOfWeek;
 private boolean hotelPickupAvailable;
 private double ratioOfSeatsSold;
 private String date;
@@ -28,7 +28,7 @@ private String location;
 private int ID;
 
     public DayTours(String name, String description, int price,
-        int ageRestriction, String departureTime, String duration, String daysOfWeek,
+        int ageRestriction, String departureTime, String duration, boolean[] daysOfWeek,
         boolean hotelPickupAvailable,double ratioOfSeatsSold, String date, double stars,
         String location, int ID) {
         this.name = name;
@@ -136,14 +136,14 @@ private int ID;
     /**
      * @return the daysOfWeek
      */
-    public String getDaysOfWeek() {
+    public boolean[] getDaysOfWeek() {
         return daysOfWeek;
     }
 
     /**
      * @param daysOfWeek the daysOfWeek to set
      */
-    public void setDaysOfWeek(String daysOfWeek) {
+    public void setDaysOfWeek(boolean[] daysOfWeek) {
         this.daysOfWeek = daysOfWeek;
     }
 
