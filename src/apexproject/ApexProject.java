@@ -19,7 +19,7 @@ public class ApexProject {
      */
     public static void main(String[] args) {
         
-        searchResults = searchClass.searchDayTours( new boolean[]{ false, false, true, false, false, false, false });
+        searchResults = searchClass.searchDayTours( "16:00" );
         System.out.println("Hér koma niðurstöður:");
         if(searchResults != null){
             for(int i = 0; i < searchResults.length; i++){

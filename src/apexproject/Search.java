@@ -54,7 +54,7 @@ public class Search {
     //Search by stars
     public DayTours[] searchDayTours(double minimumStarRating){
         for(int i = 0; i< numberOfDayTours;i++){
-            if(dayTours[i].getStars() <= minimumStarRating){
+            if(dayTours[i].getStars() >= minimumStarRating){
                 searchResults = ArrayUtils.add(searchResults,dayTours[i]);
             }
         }
@@ -68,7 +68,11 @@ public class Search {
             int minute1 = Integer.parseInt(time.substring(3, 5));
             int hour2 = Integer.parseInt(startingTime.substring(0, 2));
             int minute2 = Integer.parseInt(startingTime.substring(3, 5));
-            if(hour1 < hour2 && minute1 < minute2){
+            System.out.println("hour1: "+hour1+", minute1: " +minute1+", hour2: "+hour2+", minute2: " +minute2);
+            if(hour1 > hour2){
+                searchResults = ArrayUtils.add(searchResults,dayTours[i]);
+            }
+            else if(hour1 == hour2 && minute1 >= minute2){
                 searchResults = ArrayUtils.add(searchResults,dayTours[i]);
             }
         }
