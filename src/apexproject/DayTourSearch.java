@@ -18,8 +18,8 @@ public class DayTourSearch {
     }
     
     //Search by price
-    public DayTours[] search(int param1, int param2){
-        return mainSearch.searchDayTours("price", param1, param2);
+    public DayTours[] search(int minPrice, int maxPrice){
+        return mainSearch.searchDayTours( minPrice, maxPrice);
     }
     //Search by ageRestriction
     public DayTours[] search(String sortBy, int ageRestriction){
@@ -46,8 +46,8 @@ public class DayTourSearch {
         return mainSearch.searchDayTours(daysOfWeek);
     }
     //Search by price and ageRestriction
-    public DayTours[] search(int lowPrice, int highPrice, int ageRestriction){
-        Search newSearch = new Search(mainSearch.searchDayTours("price", lowPrice, highPrice));
+    public DayTours[] search(int minPrice, int maxPrice, int ageRestriction){
+        Search newSearch = new Search(mainSearch.searchDayTours( minPrice, maxPrice));
         return newSearch.searchDayTours("age", ageRestriction);
     }
     

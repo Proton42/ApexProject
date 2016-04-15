@@ -25,7 +25,7 @@ public class Search {
         this.dayTours = dayTours;
     }
     //Search by price
-    public DayTours[] searchDayTours(String sortBy, int parameter1, int parameter2){
+    public DayTours[] searchDayTours( int parameter1, int parameter2){
         for(int i = 0; i< numberOfDayTours;i++){
             if(dayTours[i].getPrice() >= parameter1 && dayTours[i].getPrice() <= parameter2){
                 searchResults = ArrayUtils.add(searchResults,dayTours[i]);
